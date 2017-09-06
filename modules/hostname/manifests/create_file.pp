@@ -1,4 +1,3 @@
-
 class hostname::create_file (
     ) {
   file { '/tmp/hostname.txt':
