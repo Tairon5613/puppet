@@ -15,10 +15,14 @@ class nginx::configure (
     mode    => '0644',
   }
 
+  service { 'nginx':
+    ensure => running,
+    require => File['/usr/share/nginx/html/index.html'],
+  }
   exec { 'nginxstop':
     command => 'nginx -s reload',
     path => '/usr/sbin',
-    require => File['/usr/share/nginx/html/index.html'],
+    require => Service['nginx'],
   }
 
 }
