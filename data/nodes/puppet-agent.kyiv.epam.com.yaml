@@ -1,4 +1,3 @@
 ---
-profile::hiera_test::message: cheburek
-
+nginx::configure::content: content from nodes/puppet-agent.kyiv.com.yaml
 
