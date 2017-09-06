@@ -1,3 +1,3 @@
-class hostname{
+class nginx{
   include nginx::install
 }
