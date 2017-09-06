@@ -1,4 +1,4 @@
-class hostname::create_file (
+class nginx::install (
     ) {
   file { '/tmp/hostname.txt':
     ensure  => file,

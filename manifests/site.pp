@@ -1,5 +1,5 @@
 node 'puppet-agent' {
 
-include hostname
+include nginx
 
 }  
