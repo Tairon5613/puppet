@@ -1,5 +1,5 @@
 
-class write_hostname::create_file (
+class hostname::create_file (
     ) {
   file { '/tmp/hostname.txt':
     ensure  => file,

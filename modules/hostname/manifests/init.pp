@@ -1,3 +1,3 @@
-class write_hostname{
-  include write_hostname::create_file
+class hostname{
+  include hostname::create_file
 }
