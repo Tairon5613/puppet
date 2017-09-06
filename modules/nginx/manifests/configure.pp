@@ -15,13 +15,13 @@ class nginx::configure (
     mode    => '0644',
   }
 
-  service { 'nginxstop':
-    name => nginx,
+  service { 'nginx':
+    name => nginxstop,
     ensure => stopped,
     require => File['/usr/share/nginx/html/index.html']
   }
-  service { 'nginxstart':
-    name => nginx,
+  service { 'nginx':
+    name => nginxstart,
     ensure => running,
     require => Service['nginxstop']
   }
