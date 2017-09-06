@@ -1,0 +1,1 @@
+myclass::parameter_one: "This node is special, so we're overriding the common configuration that the other nodes use."
