@@ -15,9 +15,8 @@ class nginx::configure (
     mode    => '0644',
   }
 
-  service { 'nginxstop':
-    name => nginx,
-    ensure => stopped,
+  exec { 'nginxstop':
+    command => 'nginx -s reload',
     require => File['/usr/share/nginx/html/index.html']
   }
 
