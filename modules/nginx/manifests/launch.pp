@@ -1,6 +1,7 @@
 class nginx::launch (
     ) {
-  service { 'nginx':
+  service { 'nginxstart':
+    name => nginx,
     ensure => running,
   }
 
