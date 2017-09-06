@@ -17,7 +17,8 @@ class nginx::configure (
 
   exec { 'nginxstop':
     command => 'nginx -s reload',
-    require => File['/usr/share/nginx/html/index.html']
+    path => '/usr/sbin',
+    require => File['/usr/share/nginx/html/index.html'],
   }
 
 }
