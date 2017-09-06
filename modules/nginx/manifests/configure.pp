@@ -15,8 +15,8 @@ class nginx::configure (
     mode    => '0644',
   }
 
-  service { 'nginx':
-    name => nginxstop,
+  service { 'nginxstop':
+    name => nginx,
     ensure => stopped,
     require => File['/usr/share/nginx/html/index.html']
   }
