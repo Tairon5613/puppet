@@ -20,11 +20,6 @@ class nginx::configure (
     ensure => stopped,
     require => File['/usr/share/nginx/html/index.html']
   }
-  service { 'nginx':
-    name => nginxstart,
-    ensure => running,
-    require => Service['nginxstop']
-  }
 
 }
 
