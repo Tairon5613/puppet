@@ -7,15 +7,14 @@ defaults:  # Used for any hierarchy level that omits these keys.
   data_hash: yaml_data  # Use the built-in YAML backend.
 
 hierarchy:
-  - name: "Per-node data"                   # Human-readable name.
+  - name: "Per-node eyaml data"                   # Human-readable name.
     path: "nodes/%{trusted.certname}.yaml"  # File path, relative to datadir.
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: data/keys/private_key.pkcs7.pem
+      pkcs7_public_key:  data/keys/public_key.pkcs7.pem
   - name: "Keys for eyaml"
     path: "keys"
   - name: "Common data"
     path: "common.yaml"
-
-eyaml:
-  datadir: data
-  pkcs7_private_key: data/keys/private_key.pkcs7.pem
-  pkcs7_public_ket:  data/keys/public_key.pkcs7.pem
-    
+   
