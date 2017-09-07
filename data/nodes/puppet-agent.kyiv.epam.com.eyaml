@@ -1,0 +1,35 @@
+---
+profile::user::users:
+  Greg:
+    ensure: 'present'
+    comment: 'Test user 1'
+    home: '/home/Greg'
+    shell: '/bin/bash'
+    managehome: true
+    purge_ssh_keys: true
+    password: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAm4KubFjv+5eQ/thSkrrkQ96Z0t0MMYw0gLj5xav4g0vad5NqsBScfryxaQl5tK2HFWPxf6kOQL0Jr0PPVHn5UmJjDKvTDox4CTsC6vjP+yexB4zlY3yOB9HdqPFXcW943NTzpczRHMSpsJN8ItG0pRA/hsRLnotaBfOT/RLOUAfS2FGOSCBi3tmxY9XhyJW+O1+jmS1GnUEvKJu3d6x9LPtnmRZKjQGv3Rl55cplgu7viCtSB3jthjYgDul9LRDuXYS404za0DwPjy/QsPWq/aa1xhKNHpQ2e0M0ihVN3bJnD/k54cVJRDcGNANSzT5244lK7Asxk50IFb/Clxej3jA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCAuOr/ydt52dOqVVnZo2g0gBCnjrp6j1Rq/iP5A/FeMGCX]
+profile::ssh_authorized_key::authkey:
+  'Greg@Test-Compaq-510':
+    ensure: 'present'
+    user: 'Greg'
+    type: 'ssh-rsa'
+    key: >
+    ENC[PKCS7,MIIDHQYJKoZIhvcNAQcDoIIDDjCCAwoCAQAxggEhMIIBHQIBADAFMAACAQEw
+    DQYJKoZIhvcNAQEBBQAEggEAWkUocNqLhFx95WA9aA0IUN6anwfiC2Yc+Me6
+    OqWuEuEDa2FbGFIDDMJ6TKNOcLygRx/FbvreGe5dlD/Fz9ZuHIhGtPhRVs3K
+    rtwTi8t9moxRquA+QQPk57fIWG13EAh/lwJcJ+XjYIDlVaOKgdLn4Pywde8r
+    5x1E9c63zINMiw07Ribqvogjm3Cr4cdwLTmZwXWAle25Vmslwx65Hxme1tTa
+    Oitpx35+bt7IeMq8pNX6uejsQEfRvT8UFNHBSmMrP/Qgmfq7EJC6vwHsTsfg
+    clcS7h60Hcu+RKreO9hiAfr5vdhGJuTnrgitX92VMenz0/ibeXmO3NzSzRv+
+    JeS79TCCAd4GCSqGSIb3DQEHATAdBglghkgBZQMEASoEENQ3WT/xaNk/Ropn
+    0MXp0LKAggGwnLDjwJkqBWWo9hylPy0HzgTTvoVVm+UnugLD1gmi65MyqObL
+    1r6R0U9vxAaRQYywlAicH7T4vq2sPPOEntBGCdm45HP7pQoD4KlBB27ucE0g
+    pT7q9k2OX7jyfACFZjo81cpAa/NNnh6LakWc+e13186eHjREvMKrxhxkHdRs
+    oN/3iKQAi4oJJiPGtkEuMhQXMRmWcvGiDq3FFuUxFAbADN6MeBJVTyUwgF0W
+    OjBTbdLx9yGNhypeaG+SR/tPA0sMBSxtNjHLk8cOh9yhGxBB5vNJxxRdJ6G/
+    EqEnCSL+gpJKA5G7HWpPA3OqrRPOxWulhsNBVH1E22pePmoHykryif3eMonB
+    guYxmIWm0UV8dm+RASfppyVkcqcLxkJ/VmKDGo4L+N7MWev1B1+QzCxHf2L+
+    tkJJ3hoYprGAPnWmFpVs0sHsjZ+hsnxgfKw/S9WRfUHDbMoZ8cbpmwshFVf7
+    UGlMMATpipJC96ZxB/luPdzqTBfdJ9W88NEc/IfNlZxzXBSmzOvvmyY0QGfJ
+    tEMC9SAjPAGPCQkjyAnXEtRnoJlS1WMyKcOAyoYNUXOWr+tD]
+ 
