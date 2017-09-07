@@ -8,8 +8,8 @@ defaults:  # Used for any hierarchy level that omits these keys.
 
 hierarchy:
   - name: "Per-node eyaml data"                   # Human-readable name.
-    path: "nodes/%{trusted.certname}.eyaml"  # File path, relative to datadir.
     lookup_key: eyaml_lookup_key
+    path: "nodes/%{trusted.certname}.eyaml"  # File path, relative to datadir.
     options:
       pkcs7_private_key: keys/private_key.pkcs7.pem
       pkcs7_public_key: keys/public_key.pkcs7.pem
