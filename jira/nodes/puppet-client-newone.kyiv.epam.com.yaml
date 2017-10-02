@@ -1,0 +1,78 @@
+---
+jira::jira_install::url:  www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.5.0-x64.bin
+jira::jira_install::varfile: >
+ #install4j response file for JIRA Software 7.5.0
+ #Fri Sep 08 12:00:03 EDT 2017
+ launch.application$Boolean=true
+ rmiPort$Long=8005
+ app.jiraHome=/var/atlassian/application-data/jira
+ app.install.service$Boolean=true
+ existingInstallationDir=/opt/atlassian/jira
+ sys.confirmedUpdateInstallationString=false
+ sys.languageId=en
+ sys.installationDir=/opt/atlassian/jira
+ executeLauncherAction$Boolean=true
+ httpPort$Long=8080
+ portChoice=default
+jira::apache_install::proxy_content: > 
+ <VirtualHost *:80>
+        ProxyRequests off
+ 
+        ServerName MyCompanyServer
+ 
+        <Proxy balancer://jiracluster>
+                # JIRA node 1
+                BalancerMember http://%{::ipaddress_enp0s8}:8080 route=node1
+                # JIRA node 2  Commented pending node installation
+ 
+                # Security "we aren't blocking anyone but this the place to make those changes
+                Order Deny,Allow
+                Deny from none
+                Allow from all
+ 
+                # Load Balancer Settings
+                # We are not really balancing anything in this setup, but need to configure this
+                ProxySet lbmethod=byrequests
+                ProxySet stickysession=JSESSIONID
+        </Proxy>
+ 
+        # Here's how to enable the load balancer's management UI if desired
+        <Location /balancer-manager>
+                SetHandler balancer-manager
+ 
+                # You SHOULD CHANGE THIS to only allow trusted ips to use the manager
+                Order deny,allow
+                Allow from all
+        </Location>
+ 
+        # Don't reverse-proxy requests to the management UI
+        ProxyPass /balancer-manager !
+        # Reverse proxy all other requests to the JIRA cluster
+        ProxyPass / balancer://jiracluster/
+        ProxyPreserveHost on
+ </VirtualHost>
+jira::jira_configure::dbconf_content: >
+ <?xml version="1.0" encoding="UTF-8"?>
+ <jira-database-config>
+   <name>defaultDS</name>
+   <delegator-name>default</delegator-name>
+   <database-type>postgres72</database-type>
+   <schema-name>public</schema-name>
+   <jdbc-datasource>
+     <url>jdbc:postgresql://%{::ipaddress_enp0s8}:5432/jira</url>
+     <driver-class>org.postgresql.Driver</driver-class>
+     <username>jirauser</username>
+     <password>jirapassword</password>
+     <pool-min-size>20</pool-min-size>
+     <pool-max-size>20</pool-max-size>
+     <pool-max-wait>30000</pool-max-wait>
+     <validation-query>select 1</validation-query>
+     <min-evictable-idle-time-millis>60000</min-evictable-idle-time-millis>
+     <time-between-eviction-runs-millis>300000</time-between-eviction-runs-millis>
+     <pool-max-idle>20</pool-max-idle>
+     <pool-remove-abandoned>true</pool-remove-abandoned>
+     <pool-remove-abandoned-timeout>300</pool-remove-abandoned-timeout>
+     <pool-test-on-borrow>false</pool-test-on-borrow>
+     <pool-test-while-idle>true</pool-test-while-idle>
+   </jdbc-datasource>
+ </jira-database-config>

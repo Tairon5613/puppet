@@ -1,5 +1,5 @@
-node 'puppet-agent' {
+node 'puppet-client-newone' {
 
-include profile
+include jira
 
 }  
