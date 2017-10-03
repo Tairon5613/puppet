@@ -1,0 +1,9 @@
+---
+:backends:
+  - yaml
+
+:yaml:
+  :datadir: '/etc/puppet/environments'
+
+:hierarchy:
+  - %{::environment}/nodes/client  # File path, relative to datadir.
