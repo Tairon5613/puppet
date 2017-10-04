@@ -1,6 +1,6 @@
 ---
 jira::jira_install::url:  www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-7.5.0-x64.bin
-jira::jira_install::varfile: >
+jira::jira_install::varfile: |
  #install4j response file for JIRA Software 7.5.0
  #Fri Sep 08 12:00:03 EDT 2017
  launch.application$Boolean=true
@@ -14,7 +14,7 @@ jira::jira_install::varfile: >
  executeLauncherAction$Boolean=true
  httpPort$Long=8080
  portChoice=default
-jira::apache_install::proxy_content: > 
+jira::apache_install::proxy_content: |
  <VirtualHost *:80>
         ProxyRequests off
  
@@ -51,7 +51,7 @@ jira::apache_install::proxy_content: >
         ProxyPass / balancer://jiracluster/
         ProxyPreserveHost on
  </VirtualHost>
-jira::jira_configure::dbconf_content: >
+jira::jira_configure::dbconf_content: |
  <?xml version="1.0" encoding="UTF-8"?>
  <jira-database-config>
    <name>defaultDS</name>
