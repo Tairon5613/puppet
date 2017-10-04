@@ -6,4 +6,4 @@
   :datadir: '/etc/puppet/environments'
 
 :hierarchy:
-  - %{::environment}/nodes/client  # File path, relative to datadir.
+  - jira/nodes/client  # File path, relative to datadir.

@@ -3,7 +3,7 @@ class jira::jira_configure (
     ) {
 
 	exec { 'tomcat fix':
-		command => "sed -i '62i\proxyName=\"jiracluster\"\\n\ proxyPort=\"80\"\\n\ scheme=\"http\"' /opt/atlassian/jira/conf/server.xml; touch /tmp/tomcat_fix",
+    command => "sed -i '62i\\proxyName=\"jiracluster\"\\n proxyPort=\"80\"\\n scheme=\"http\"' /opt/atlassian/jira/conf/server.xml; touch /tmp/tomcat_fix",
 		path => '/usr/bin',
 		unless => '/usr/bin/test -f /tmp/tomcat_fix',
 		require => File['/etc/httpd/conf.d/default-site.conf']

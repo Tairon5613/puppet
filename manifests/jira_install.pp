@@ -28,7 +28,7 @@ class jira::jira_install (
 	}
 
  exec { 'installation fix':
-	command => "mkdir /opt/atlassian ; mv /opt/JIRA\ Software /opt/atlassian/jira ; sed -i -e 's/jira1/jira/g' /opt/atlassian/jira/bin/user.sh; sed -i -e  's/cd\ \"\/opt/cd\ \"\/opt\/atlassian\/jira\/bin\"/g' /etc/init.d/jira; sed -i -e 's/Software\/bin\"/\ /g' /etc/init.d/jira; sed -i -e 's/JAVA_HOME=\"\/opt\/JIRA\ Software\/jre\/\"\;\ export\ JAVA_HOME/JAVA_HOME=\"\/opt\/atlassian\/jira\/jre\"\ export\ JAVA_HOME/g'  /opt/atlassian/jira/bin/setenv.sh ",
+  command => "mkdir /opt/atlassian ; mv /opt/JIRA\\ Software /opt/atlassian/jira ; sed -i -e 's/jira1/jira/g' /opt/atlassian/jira/  bin/user.sh; sed -i -e  's/cd \"\\/opt\\/cd \"\\/opt\\/atlassian\\/jira\\/bin\"/g' /etc/init.d/jira; sed -i -e 's/Software\\/bin\"/ \\ /g' /etc/init.d/jira; sed -i -e 's/JAVA_HOME=\"\\/opt\\/JIRA\\ Software\\/jre\\/\"\\;\\ export\\ JAVA_HOME/JAVA_HOME=\"\\/opt\\/ atlassian\\/jira\\/jre\"\\ export\\ JAVA_HOME/g'  /opt/atlassian/jira/bin/setenv.sh "
 	 path => "/usr/bin", 
 	require => Exec['Run installation Jira']
 	}
