@@ -22,7 +22,7 @@ jira::apache_install::proxy_content: |
  
         <Proxy balancer://jiracluster>
                 # JIRA node 1
-                BalancerMember http://%{::ipaddress_enp0s8}:8080 route=node1
+                BalancerMember http://%{::ipaddress_eth0}:8080 route=node1
                 # JIRA node 2  Commented pending node installation
  
                 # Security "we aren't blocking anyone but this the place to make those changes
@@ -59,7 +59,7 @@ jira::jira_configure::dbconf_content: |
    <database-type>postgres72</database-type>
    <schema-name>public</schema-name>
    <jdbc-datasource>
-     <url>jdbc:postgresql://%{::ipaddress_enp0s8}:5432/jira</url>
+     <url>jdbc:postgresql://%{::ipaddress_eth0}:5432/jira</url>
      <driver-class>org.postgresql.Driver</driver-class>
      <username>jirauser</username>
      <password>jirapassword</password>
