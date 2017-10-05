@@ -26,7 +26,7 @@ class jira::jira_configure (
 
 	
 	exec { 'restart jira':
-		command => '/opt/atlassian/jira/bin/start-jira.sh ',
+		command => '/opt/atlassian/jira/bin/stop-jira.sh ; /opt/atlassian/jira/bin/start-jira.sh',
 		path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 		cwd => '/opt/atlassian/jira/bin',
 		require => File['/var/atlassian/application-data/jira/dbconfig.xml']
