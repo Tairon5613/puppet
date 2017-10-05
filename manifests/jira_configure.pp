@@ -34,7 +34,7 @@ class jira::jira_configure (
  
 
 	exec { 'restart httpd':
-		command => '/bin/systemctl restart  httpd.service',
+		command => '  /usr/sbin/setsebool httpd_can_network_connect 1; /usr/sbin/setsebool httpd_can_network_connect true; /bin/systemctl restart  httpd.service',
 		path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 		require => Exec['restart jira']
 
