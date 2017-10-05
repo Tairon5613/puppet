@@ -20,7 +20,7 @@ class jira::postgres_install (
 	}
 
    exec { 'pg_hba fix':
-  command => "sed -i -e 's/127.0.0.1\\/32/0.0.0.0\\/0/g' /var/lib/pgsql/data/pg_hba.conf ; sed -i -e 's/ident/trust/g' /var/lib/    pgsql/data/pg_hba.conf ; sed -i \"59i\\listen_addresses = \'0.0.0.0\'\" /var/lib/pgsql/data/postgresql.conf ",
+  command => "sed -i -e 's/127.0.0.1\\/32/0.0.0.0\\/0/g' /var/lib/pgsql/data/pg_hba.conf ; sed -i -e 's/ident/trust/g' /var/lib/pgsql/data/pg_hba.conf ; sed -i \"59i\\listen_addresses = \'0.0.0.0\'\" /var/lib/pgsql/data/postgresql.conf ",
 	path => '/usr/bin',
 	require => Exec['initialise db']
 	}
